@@ -1,0 +1,20 @@
+//Reverse of Integer.
+class Solution {
+    public int reverse(int x) {
+        boolean isNegative=x<0;
+        int reversed=0;
+        x=Math.abs(x);
+        if(x>0){
+            while(x!=0){
+                int number=x%10;
+                if (reversed > (Integer.MAX_VALUE - number) / 10) {
+                    return 0;
+                }
+                    reversed=reversed*10+number;
+                    x=x/10;
+                }
+            } 
+            return isNegative ? -reversed : reversed;
+    }
+
+}
